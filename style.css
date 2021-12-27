@@ -9,8 +9,9 @@ body {
 
 #chat {
   position: absolute;
+  left: 10px;
   bottom: 10px;
-  width: 400px;
+  width: calc(100% - 20px);
 }
 
 .chat-line {
