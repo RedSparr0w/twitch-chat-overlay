@@ -44,6 +44,9 @@ let streamer = params.get("streamer") || params.get("channel") || "mrmax2503";
 // Read testing from query
 let testing = params.get("testing") != null;
 
+// Should names be single colored
+let singleColored = params.get("single-color") != null;
+
 // Message dissapear timeout
 let messageTimeout = parseInt(params.get("timeout"));
 messageTimeout = messageTimeout >= 0 ? messageTimeout : 3000;
@@ -266,6 +269,7 @@ function showMessage({
 
     let nameEle = document.createElement("span");
     nameEle.classList.add("user-name");
+    nameEle.style = singleColored ? '' : `color: ${data.color}`;
     nameEle.innerText = data.name;
 
     let colonEle = document.createElement("span");
