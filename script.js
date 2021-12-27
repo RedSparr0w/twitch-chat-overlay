@@ -45,7 +45,8 @@ let streamer = params.get("streamer") || params.get("channel") || "mrmax2503";
 let testing = params.get("testing") != null;
 
 // Message dissapear timeout
-let messageTimeout = parseInt(params.get("timeout")) || 3000;
+let messageTimeout = parseInt(params.get("timeout"));
+messageTimeout = messageTimeout >= 0 ? messageTimeout : 3000;
 
 if (testing) {
   kraken({
