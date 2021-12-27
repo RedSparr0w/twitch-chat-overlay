@@ -25,7 +25,7 @@ body {
   transition: opacity 2s, max-height 1s, margin-top 300ms;
 }
 .chat-line .chat-line-inner {
-  background-color: rgba(31, 31, 31, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   padding: 10px;
   overflow-wrap: break-word;
 }
