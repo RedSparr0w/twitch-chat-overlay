@@ -39,10 +39,13 @@ let client;
 let params = new URLSearchParams(document.location.search.substring(1));
 
 // Read wanted stream chat from query. Fallback to "mrmax2503"
-let streamer = params.get("streamer") || "mrmax2503";
+let streamer = params.get("streamer") || params.get("channel") || "mrmax2503";
 
 // Read testing from query
-let testing = params.get("testing") == "1";
+let testing = params.get("testing") != null;
+
+// Message dissapear timeout
+let messageTimeout = parseInt(params.get("timeout")) || 3000;
 
 if (testing) {
   kraken({
@@ -128,7 +131,7 @@ function addListeners() {
       name += ` (${userstate.username})`;
     }
     userstate.name = name;
-    showMessage({ chan, type: "chat", message, data: userstate });
+    showMessage({ chan, type: "chat", message, data: userstate, timeout: messageTimeout });
   }
 
   client.on("message", handleMessage);
