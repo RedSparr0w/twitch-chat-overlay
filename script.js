@@ -125,7 +125,7 @@ function addListeners() {
 
   function handleMessage(channel, userstate, message, fromSelf) {
     if (chatFilter.test(message)) {
-      testing && console.log(message);
+      testing && console.debug('Message filtered:', message);
       return;
     }
 
@@ -454,7 +454,7 @@ async function twitchNameToUser(username) {
     qs: { login: username },
   }).then(({ users }) => users[0] || null);
 
-  console.log(user);
+  console.debug('Channel user info:', user);
   return user;
 }
 
