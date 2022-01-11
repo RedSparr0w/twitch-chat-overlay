@@ -235,6 +235,11 @@ function showMessage({
   Object.keys(attribs).forEach((key) => {
     chatLine_.setAttribute(key, attribs[key]);
   });
+  
+  // Check if message should be highlighted
+  if (data?.['msg-id']?.includes('highlighted')) {
+    chatLine_.classList.add("highlighted");
+  }
 
   if (type === "chat") {
     "id" in data && chatLine_.setAttribute("message-id", data.id);

@@ -39,6 +39,30 @@ body {
   opacity: 0.4;
 }
 
+/* Highlighted messages */
+.chat-line.highlighted .chat-line-inner {
+  content: "";
+  background: linear-gradient(
+    to left,
+    #0ff,
+    #e4428d,
+    #e4428d,
+    #0ff
+  );
+  background-size: 200vw 200vw;
+  animation: animateGlow 5s linear infinite;
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0vw 50%;
+  }
+  100% {
+    background-position: -200vw 50%;
+  }
+}
+
+
 .user-name {
   color: #ff6bb5;
 }
