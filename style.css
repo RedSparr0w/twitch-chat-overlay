@@ -10,7 +10,7 @@ body {
 #chat {
   position: absolute;
   left: 10px;
-  bottom: 10px;
+  bottom: 5px;
   width: calc(100% - 20px);
 }
 
@@ -20,7 +20,7 @@ body {
   transition: opacity 2s, max-height 1s, margin-top 1s;
 }
 .chat-line.visible {
-  margin-top: 10px;
+  margin-top: 5px;
   max-height: 300px;
   transition: opacity 2s, max-height 1s, margin-top 300ms;
 }
@@ -40,17 +40,26 @@ body {
 }
 
 /* Highlighted messages */
-.chat-line.highlighted .chat-line-inner {
+.chat-line.visible.highlighted {
+  position: relative;
+  overflow: visible;
+  margin: 10px 0px;
+}
+.chat-line.visible.highlighted::after {
+  position: absolute;
   content: "";
-  background: linear-gradient(
-    to left,
-    #0ff,
-    #e4428d,
-    #e4428d,
-    #0ff
-  );
-  background-size: 200vw 200vw;
-  animation: animateGlow 5s linear infinite;
+  bottom: -4px;
+  left: -4px;
+  right: 0;
+  z-index: -1;
+  height: calc(100% + 8px);
+  width: calc(100% + 8px);
+  transform: translateZ(0);
+  filter: blur(3px);
+  background: linear-gradient(to left, rgba(0, 255, 255, 0.75), rgba(196, 45, 168, 0.75), rgba(101, 1, 222, 0.75), rgba(196, 45, 168, 0.75), rgba(0, 255, 255, 0.75));
+  background-size: 200% 200%;
+  -webkit-animation: animateGlow 1.25s linear infinite;
+  animation: animateGlow 1.25s linear infinite;
 }
 
 @keyframes animateGlow {
